@@ -28872,7 +28872,7 @@ window.carList = [];
                 carSelectMenu.style.top = "5rem";
                 carSelectMenu.style.left = "50%";
                 carSelectMenu.innerHTML = `${carModels.map(carModel =>{
-                    return `<button class = "button" onclick=\'javascript:{this.querySelector(".loading").style.display = "";window.modAPI.setNewCarTemplateModel("${carModel.url}").then((x)=>{alert(\'yeye\');window.localStorage.MyCar = "${carModel.url}";window.modAPI.reloadAllCarModels();this.querySelector(".loading").style.display = "none"})}'>${carModel.name}<span class = "loading" style = "display:none;"> loading</span></button>`
+                    return `<button class = "button" onclick=\'javascript:{this.querySelector(".loading").style.display = "";window.modAPI.setNewCarTemplateModel("${carModel.url}").then((x)=>{window.localStorage.MyCar = "${carModel.url}";window.modAPI.reloadAllCarModels();this.querySelector(".loading").style.display = "none"})}'>${carModel.name}<span class = "loading" style = "display:none;"> loading</span></button>`
                  })}`;
                 carSelectMenu.style.backgroundColor = "var(--surface-color)";
                 modButtonCarChooser.addEventListener("click", ( () => {
@@ -42711,6 +42711,7 @@ window.resolve(window.modAPI = {
         return new Promise((resolve, reject) => {
             fd.load(carPath, (t) => {
               function n(e) {
+                  
                 const n = t.scene.getObjectByName(e);
                 if (null == n) throw 'Mesh "' + e + '" does not exist';
                 if (0 == n.children.length) {
@@ -42770,6 +42771,7 @@ window.resolve(window.modAPI = {
      * @returns {undefined}
      */
     setNewCarTemplateModel:async (carPath)=>{
+            alert("yeye2");
         var newCar = typeof carPath == "string"? await modAPI.getComputedCarModel(carPath): carPath //so you can submit a computed model
         Pg.models = await newCar
         return await newCar

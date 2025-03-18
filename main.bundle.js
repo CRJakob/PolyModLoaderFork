@@ -1,6 +1,3 @@
-window.modAPI = new Promise((res,rej)=>{
-    window.resolve = res
-})
 /*
 //car switching code
 
@@ -71,6 +68,9 @@ Pg.models.wheelFL =  newCar.wheelFL
 await e.loadedResource()
 })()
 */
+window.modAPI = new Promise((res,rej)=>{
+    window.resolve = res
+})
 window.carModels = [
     {
         "name": "Poly Car",
@@ -1365,7 +1365,7 @@ window.carList = [];
                         , k = 1
                         , E = 2
                         , S = 3
-                        , M = 0
+                        , M = window.M = 0 //savePoint
                         , T = 1
                         , A = 2
                         , C = 100
@@ -7498,6 +7498,7 @@ window.carList = [];
                                 }
                         }
                     }
+                    window.Br = Br //savePoint
                     function Or(e, t, n, i, r, a, o, s, l, c) {
                         e.getVertexPosition(s, Er),
                             e.getVertexPosition(l, Sr),
@@ -21301,7 +21302,7 @@ window.carList = [];
                             }
                         }
                     ;
-                    function dd(e, t=!1) {
+                    var dd = window.dd = (e, t=!1) => {
                         const n = null !== e[0].index
                             , i = new Set(Object.keys(e[0].attributes))
                             , r = new Set(Object.keys(e[0].morphAttributes))
@@ -26893,8 +26894,9 @@ window.carList = [];
                         }
                     }
                     Ag = new WeakMap;
-                    const Lg = Rg;
-                    var Ig, Ng, Dg, Ug, Bg, Og, zg, Fg, Wg, Hg, Vg, Gg, jg, qg, Xg, Yg, Kg, Zg, Jg, Qg, $g, ev, tv, nv, iv, rv, av, ov, sv, lv, cv, hv, dv, uv, pv, fv, mv, gv, vv, wv, yv, bv, xv, _v, kv, Ev, Sv, Mv, Tv, Av, Cv, Pv, Rv, Lv, Iv, Nv, Dv, Uv, Bv = function(e, t, n, i, r) {
+                    const Lg = Rg; //savePoint
+                    var Lv;
+                     window.Pg = window.Ig = window.Ng = window.Dg = window.Ug = window.Bg = window.Og = window.zg = window.Fg = window.Wg = window.Hg = window.Vg = window.Gg = window.jg = window.qg = window.Xg = window.Yg = window.Kg = window.Zg = window.Jg = window.Qg = window.$g = window.ev = window.tv = window.nv = window.iv = window.rv = window.av = window.ov = window.sv = window.lv = window.cv = window.hv = window.dv = window.uv = window.pv = window.fv = window.mv = window.gv = window.vv = window.wv = window.yv = window.bv = window.xv = window._v = window.kv = window.Ev = window.Sv = window.Mv = window.Tv = window.Av = window.Cv = window.Pv = window.Rv = Lv = window.Iv = window.Nv = window.Dv = window.Uv = window.Bv = function(e, t, n, i, r) {
                         if ("m" === i)
                             throw new TypeError("Private method is not writable");
                         if ("a" === i && !r)
@@ -26903,7 +26905,7 @@ window.carList = [];
                             throw new TypeError("Cannot write private member to an object whose class did not declare it");
                         return "a" === i ? r.call(e, n) : r ? r.value = n : t.set(e, n),
                             n
-                    }, Ov = function(e, t, n, i) {
+                    }, window.Ov = function(e, t, n, i) {
                         if ("a" === n && !i)
                             throw new TypeError("Private accessor was defined without a getter");
                         if ("function" == typeof t ? e !== t || !i : !t.has(e))
@@ -27316,7 +27318,8 @@ window.carList = [];
                         }
                         static initResources(e) {
                             e.addResource();
-                            (new fd).load("models/car.glb", (t => {
+                            window.fd = (new fd)
+                            window.fd.load(window.window.localStorage.MyCar || "models/car.glb", (t => {
                                     function n(e) {
                                         const n = t.scene.getObjectByName(e);
                                         if (null == n)
@@ -27708,7 +27711,7 @@ window.carList = [];
                             null != Ov(this, lv, "f") && (e ? Ov(this, lv, "f").emissive.setRGB(1, .4, .3) : Ov(this, lv, "f").emissive.setRGB(0, 0, 0))
                         }
                         ,
-                        Uv = function(e) {
+                        Uv = window.Lv = function(e) {
                             const t = e.geometry.toNonIndexed();
                             if (!(t.attributes.position instanceof lr))
                                 throw "Vertices must use BufferAttribute";
@@ -42635,17 +42638,17 @@ window.resolve(window.modAPI = {
                 const n = new Cn(e);
                 let i;
                 n.flipY = !1,
-                    n.anisotropy = Nv(x, $g, "f").getMaxAnisotropy(),
+                    n.anisotropy = Ov(x, $g, "f").getMaxAnisotropy(),
                     n.needsUpdate = !0,
                     Iv(x, av, t, "f"),
                     Iv(x, ov, n, "f");
                 let rand=wu.random();
                 Iv(x, lv, rand, "f"),
-                    Nv(x, Cg, "m", yv).call(x),
+                    Ov(x, Cg, "m", yv).call(x),
                     Iv(x, sv, {
                         value: new Un(0,0,0)
                     }, "f"),
-                    i = Array.isArray(Nv(x, tv, "f").material) ? Nv(x, tv, "f").material : [Nv(x, tv, "f").material];
+                    i = Array.isArray(Ov(x, tv, "f").material) ? Ov(x, tv, "f").material : [Ov(x, tv, "f").material];
                 for (let e = 0; e < i.length; ++e) {
                     const t = i[e];
                     "Main" == t.name ? t.onBeforeCompile = e => {
@@ -42654,7 +42657,7 @@ window.resolve(window.modAPI = {
                                 e.uniforms.carColorPattern = {
                                     value: n
                                 },
-                                e.uniforms.carColorSecondary = Nv(x, sv, "f"),
+                                e.uniforms.carColorSecondary = Ov(x, sv, "f"),
                             null == e.defines && (e.defines = {}),
                                 e.defines.USE_UV = !0
                         }
@@ -42711,7 +42714,7 @@ window.resolve(window.modAPI = {
                     wheelFR: i(n("WheelFR")),
                     wheelBL: i(n("WheelBL")),
                     wheelBR: i(n("WheelBR")),
-                    collisionShapeVertices: Nv(Pg, Pg, "m", Lv).call(Pg, n("Collision")),
+                    collisionShapeVertices: Ov(Pg, Pg, "m", Lv).call(Pg, n("Collision")),
                 }
 
                 resVal.wheelFL.geometry.translate(-.627909, .218824, -1.3478),
