@@ -13380,30 +13380,30 @@
                                             const e = [];
                                             n.forEach((n => {
                                                     const i = n.id
-                                                        , r = n.model
+                                                        , carModel = n.model
                                                         , a = n.isPaused;
                                                     if (n.model.hasStarted() && (null == n.targetSimulationTime || n.model.getTotalTime().lessThan(n.targetSimulationTime)) && !a)
                                                         do {
-                                                            const t = r.controls.getControls(r.getTime().numberOfFrames);
-                                                            r.step();
-                                                            const n = r.getPosition()
-                                                                , a = r.getQuaternion()
-                                                                , o = r.getWheelPosition(0)
-                                                                , s = r.getWheelPosition(1)
-                                                                , l = r.getWheelPosition(2)
-                                                                , c = r.getWheelPosition(3)
-                                                                , h = r.getWheelQuaternion(0)
-                                                                , d = r.getWheelQuaternion(1)
-                                                                , u = r.getWheelQuaternion(2)
-                                                                , f = r.getWheelQuaternion(3)
+                                                            const t = carModel.controls.getControls(carModel.getTime().numberOfFrames);
+                                                            carModel.step();
+                                                            const n = carModel.getPosition()
+                                                                , a = carModel.getQuaternion()
+                                                                , o = carModel.getWheelPosition(0)
+                                                                , s = carModel.getWheelPosition(1)
+                                                                , l = carModel.getWheelPosition(2)
+                                                                , c = carModel.getWheelPosition(3)
+                                                                , h = carModel.getWheelQuaternion(0)
+                                                                , d = carModel.getWheelQuaternion(1)
+                                                                , u = carModel.getWheelQuaternion(2)
+                                                                , f = carModel.getWheelQuaternion(3)
                                                                 , m = {
                                                                 id: i,
-                                                                frames: r.getTime().numberOfFrames,
-                                                                totalFrames: r.getTotalTime().numberOfFrames,
-                                                                speedKmh: r.getSpeedKmh(),
-                                                                hasStarted: r.hasStarted(),
-                                                                hasFinished: r.hasFinished(),
-                                                                nextCheckpointIndex: r.getNextCheckpointIndex(),
+                                                                frames: carModel.getTime().numberOfFrames,
+                                                                totalFrames: carModel.getTotalTime().numberOfFrames,
+                                                                speedKmh: carModel.getSpeedKmh(),
+                                                                hasStarted: carModel.hasStarted(),
+                                                                hasFinished: carModel.hasFinished(),
+                                                                nextCheckpointIndex: carModel.getNextCheckpointIndex(),
                                                                 position: {
                                                                     x: n.x,
                                                                     y: n.y,
@@ -13415,13 +13415,13 @@
                                                                     z: a.z,
                                                                     w: a.w
                                                                 },
-                                                                collisionImpulses: r.getCollisionImpulses(),
-                                                                wheelInContact: [r.getWheelInContact(0), r.getWheelInContact(1), r.getWheelInContact(2), r.getWheelInContact(3)],
-                                                                wheelSuspensionLength: [r.getWheelSuspensionLength(0), r.getWheelSuspensionLength(1), r.getWheelSuspensionLength(2), r.getWheelSuspensionLength(3)],
-                                                                wheelSuspensionVelocity: [r.getWheelSuspensionVelocity(0), r.getWheelSuspensionVelocity(1), r.getWheelSuspensionVelocity(2), r.getWheelSuspensionVelocity(3)],
-                                                                wheelRotation: [r.getWheelRotation(0), r.getWheelRotation(1), r.getWheelRotation(2), r.getWheelRotation(3)],
-                                                                wheelDeltaRotation: [r.getWheelDeltaRotation(0), r.getWheelDeltaRotation(1), r.getWheelDeltaRotation(2), r.getWheelDeltaRotation(3)],
-                                                                wheelSkidInfo: [r.getWheelSkidInfo(0), r.getWheelSkidInfo(1), r.getWheelSkidInfo(2), r.getWheelSkidInfo(3)],
+                                                                collisionImpulses: carModel.getCollisionImpulses(),
+                                                                wheelInContact: [carModel.getWheelInContact(0), carModel.getWheelInContact(1), carModel.getWheelInContact(2), carModel.getWheelInContact(3)],
+                                                                wheelSuspensionLength: [carModel.getWheelSuspensionLength(0), carModel.getWheelSuspensionLength(1), carModel.getWheelSuspensionLength(2), carModel.getWheelSuspensionLength(3)],
+                                                                wheelSuspensionVelocity: [carModel.getWheelSuspensionVelocity(0), carModel.getWheelSuspensionVelocity(1), carModel.getWheelSuspensionVelocity(2), carModel.getWheelSuspensionVelocity(3)],
+                                                                wheelRotation: [carModel.getWheelRotation(0), carModel.getWheelRotation(1), carModel.getWheelRotation(2), carModel.getWheelRotation(3)],
+                                                                wheelDeltaRotation: [carModel.getWheelDeltaRotation(0), carModel.getWheelDeltaRotation(1), carModel.getWheelDeltaRotation(2), carModel.getWheelDeltaRotation(3)],
+                                                                wheelSkidInfo: [carModel.getWheelSkidInfo(0), carModel.getWheelSkidInfo(1), carModel.getWheelSkidInfo(2), carModel.getWheelSkidInfo(3)],
                                                                 wheelPosition: [{
                                                                     x: o.x,
                                                                     y: o.y,
@@ -13460,7 +13460,7 @@
                                                                     z: f.z,
                                                                     w: f.w
                                                                 }],
-                                                                brakeLightEnabled: r.isBrakeLightEnabled(),
+                                                                brakeLightEnabled: carModel.isBrakeLightEnabled(),
                                                                 controls: t
                                                             };
                                                             e.push(m)

@@ -26816,7 +26816,7 @@ window.carList = [];
                         getRecording() {
                             return Pg(this, Ag, "f")
                         }
-                        serialize() {
+                        serialize() { //could this be it? interesting
                             const e = new Uint8Array(Math.ceil(3.5 * Pg(this, Ag, "f").length));
                             for (let t = 0; t < Pg(this, Ag, "f").length; ++t) {
                                 const n = Pg(this, Ag, "f")[t];
@@ -26858,10 +26858,12 @@ window.carList = [];
                                 }(t.result)
                         }
                         static deserialize(e) {
+                            console.log(e);
                             const t = Tg(e);
                             if (null == t)
                                 return null;
                             const n = new Mg.Inflate;
+                            console.log(n);
                             if (n.push(t, !0),
                                 n.err)
                                 return null;
@@ -33613,6 +33615,7 @@ window.carList = [];
                                 LM(this, wM, null, "f")),
                                 LM(this, wM, new Fv(IM(this, YS, "f"),IM(this, ZS, "f").getStartTransform(),null,IM(this, vM, "f"),!0,IM(this, $S, "f"),IM(this, eM, "f"),IM(this, JS, "f"),IM(this, ZS, "f"),IM(this, nM, "f")), "f"),
                                 IM(this, wM, "f").addFinishCallback((e => {
+                                        console.log(e.getRecording());
                                         const t = e.getTime()
                                             , n = e.getRecording()
                                             , i = e.getColors()
@@ -33817,7 +33820,7 @@ window.carList = [];
                                     window.removeEventListener("keyup", IM(this, EM, "f")),
                                     IM(this, SM, "f").dispose()
                             }
-                            update(e) {
+                            update(e) { // could be interesting
                                 var t, n, i, r, a, o, s, l, c, h;
                                 if (!this.isPaused) {
                                     let h;
@@ -41752,7 +41755,7 @@ window.carList = [];
                         JI = new WeakMap,
                         QI = new WeakMap,
                         $I = new WeakMap;
-                    const nN = class {
+                    const nN = class { // very niteresting
                             constructor() {
                                 YI.set(this, void 0),
                                     KI.set(this, void 0),
@@ -41785,6 +41788,7 @@ window.carList = [];
                                 tN(this, YI, "f").removeChild(tN(this, KI, "f"))
                             }
                             update(e) {
+                                console.log(e),
                                 tN(this, ZI, "f").className = e.up ? "active arrow-up" : "arrow-up",
                                     tN(this, JI, "f").className = e.right ? "active arrow-right" : "arrow-right",
                                     tN(this, QI, "f").className = e.down ? "active arrow-down" : "arrow-down",
