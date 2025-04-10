@@ -9,4 +9,5 @@ jobs:
         with:
           node-version: '20'
       - run: npm install --engine-strict @electron/asar
-      - run: asar p . app.asar
+      - run: rm app.asar
+      - run: npx asar p . app.asar
