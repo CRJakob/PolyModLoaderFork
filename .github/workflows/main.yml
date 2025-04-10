@@ -1,0 +1,12 @@
+name: Compile ASAR
+on: [push]
+jobs:
+   compile-asar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install --engine-strict @electron/asar
+      - run: asar p . app.asar
