@@ -9,8 +9,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install ASAR Utility
-        run: npm install --engine-strict @electron/asar
       - name: Compile ASAR
         if: always()
         run: npx asar p . app.asar
