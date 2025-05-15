@@ -1,11 +1,5 @@
 import { ActivePolyModLoader, MixinType, SoundManager } from "https://pml.orangy.cfd/0rangy/PolyModLoader/0.5.0/PolyModLoader.js"
-import ("https://cdn.jsdelivr.net/npm/eruda@3.4.1/eruda.js")
-.then(({ default: eruda }) => {
-    eruda.init();
-  })
-  .catch(err => {
-    console.warn('Eruda failed to load:', err);
-  });
+
 ActivePolyModLoader.initStorage(localStorage);
 window.polyModLoader = ActivePolyModLoader;
 async function createWorkerFromURL(url) {
